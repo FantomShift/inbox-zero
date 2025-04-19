@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/gmail/:path*",
-      "destination": "https://inbox-zero-web-git-gmail-integration-inbox-zero.vercel.app/:path*"
+      "destination": "https://https://inbox-zero-web-lemon.vercel.app//:path*"
     }
   ]
 }

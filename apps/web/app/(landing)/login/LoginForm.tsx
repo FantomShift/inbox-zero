@@ -18,8 +18,15 @@ export function LoginForm() {
   const searchParams = useSearchParams();
   const next = searchParams?.get("next");
   const error = searchParams?.get("error");
+  const consent = searchParams?.get("consent");
 
   const [loading, setLoading] = useState(false);
+
+  // Determine if consent is needed based on URL params
+  const needsConsent = consent === "true" || error === "RequiresReconsent";
+  const buttonText = needsConsent
+    ? "Authorize Gmail Access"
+    : "Sign in with Google";
 
   return (
     <div className="flex justify-center px-4 sm:px-16">
@@ -34,7 +41,7 @@ export function LoginForm() {
                 height={24}
                 unoptimized
               />
-              <span className="ml-2">Sign in with Google</span>
+              <span className="ml-2">{buttonText}</span>
             </span>
           </Button>
         </DialogTrigger>
@@ -65,7 +72,7 @@ export function LoginForm() {
                       ? { callbackUrl: next }
                       : { callbackUrl: "/welcome" }),
                   },
-                  error === "RequiresReconsent" ? { consent: true } : undefined,
+                  needsConsent ? { consent: true } : undefined,
                 );
               }}
             >

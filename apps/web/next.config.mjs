@@ -14,6 +14,7 @@ const withMDX = nextMdx();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '/gmail',
   reactStrictMode: true,
   serverExternalPackages: ["@sentry/nextjs", "@sentry/node"],
   turbopack: {

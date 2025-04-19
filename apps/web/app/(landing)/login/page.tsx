@@ -19,6 +19,8 @@ export default async function AuthenticationPage(props: {
 }) {
   const searchParams = await props.searchParams;
   const session = await auth();
+
+  // Original redirect logic: Redirect if user is logged in and there's no error
   if (session?.user.email && !searchParams?.error) {
     if (searchParams?.next) {
       redirect(searchParams?.next);

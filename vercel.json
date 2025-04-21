@@ -1,11 +1,5 @@
 {
   "buildCommand": "cd ../.. && turbo run build --filter={apps/web}...",
   "installCommand": "pnpm install",
-  "ignoreCommand": "",
-  "rewrites": [
-    {
-      "source": "/gmail/:path*",
-      "destination": "https://inbox-zero-web-lemon.vercel.app/:path*"
-    }
-  ]
+  "ignoreCommand": ""
 }

@@ -63,6 +63,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.getinboxzero.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.uipcontrol.com",
+      },
     ],
   },
   async redirects() {
@@ -113,32 +117,32 @@ const nextConfig = {
       },
       {
         source: "/feature-requests",
-        destination: "https://inboxzero.featurebase.app",
+        destination: "https://uipcontrol.featurebase.app",
         permanent: true,
       },
       {
         source: "/feedback",
-        destination: "https://inboxzero.featurebase.app",
+        destination: "https://uipcontrol.featurebase.app",
         permanent: true,
       },
       {
         source: "/roadmap",
-        destination: "https://inboxzero.featurebase.app/roadmap",
+        destination: "https://uipcontrol.featurebase.app/roadmap",
         permanent: true,
       },
       {
         source: "/changelog",
-        destination: "https://inboxzero.featurebase.app/changelog",
+        destination: "https://uipcontrol.featurebase.app/changelog",
         permanent: true,
       },
       {
         source: "/twitter",
-        destination: "https://twitter.com/inboxzero_ai",
+        destination: "https://twitter.com/fantomshift",
         permanent: true,
       },
       {
         source: "/github",
-        destination: "https://github.com/elie222/inbox-zero",
+        destination: "https://github.com/fantomshift/uip-control",
         permanent: true,
       },
       {
@@ -148,7 +152,7 @@ const nextConfig = {
       },
       {
         source: "/linkedin",
-        destination: "https://www.linkedin.com/company/inbox-zero-ai/",
+        destination: "https://www.linkedin.com/company/fantomshift-studios/",
         permanent: true,
       },
       {
@@ -163,7 +167,7 @@ const nextConfig = {
       },
       {
         source: "/affiliates",
-        destination: "https://inboxzero.lemonsqueezy.com/affiliates",
+        destination: "https://uipcontrol.lemonsqueezy.com/affiliates",
         permanent: true,
       },
       {

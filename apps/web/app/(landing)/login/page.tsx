@@ -9,8 +9,8 @@ import { AlertBasic } from "@/components/Alert";
 import { env } from "@/env";
 
 export const metadata: Metadata = {
-  title: "Log in | Inbox Zero",
-  description: "Log in to Inbox Zero.",
+  title: "Log in | UIP Control",
+  description: "Log in to UIP Control.",
   alternates: { canonical: "/login" },
 };
 

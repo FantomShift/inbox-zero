@@ -80,7 +80,7 @@ const desktopTestimonials: Testimonial[][][] = [
   [
     [
       {
-        body: "I was mostly hoping to turn my email inbox into less of the mess that it is. I’ve been losing tasks that I should do as the emails get buried. So far it’s really helped.",
+        body: "I was mostly hoping to turn my email inbox into less of the mess that it is. I've been losing tasks that I should do as the emails get buried. So far it's really helped.",
         author: {
           name: "Steve Radabaugh",
           handle: "stevenpaulr",
@@ -124,7 +124,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-lg font-semibold leading-8 tracking-tight text-blue-600">
-            Inbox Zero Love
+            UIP Control Love
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Join thousands who spend less time on email

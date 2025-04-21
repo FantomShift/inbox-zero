@@ -92,7 +92,7 @@ export function Pricing(props: {
             <Button variant="primaryBlue" className="ml-2" asChild>
               <Link href={env.NEXT_PUBLIC_APP_HOME_PATH}>
                 <SparklesIcon className="mr-2 h-4 w-4" />
-                Use Inbox Zero
+                Use UIP Control
               </Link>
             </Button>
 

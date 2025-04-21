@@ -156,7 +156,7 @@ const featuresColdEmailBlocker = [
   {
     name: "Adjust cold email prompt",
     description:
-      "Tell Inbox Zero what constitutes a cold email for you. It will block them based on your instructions.",
+      "Tell UIP Control what constitutes a cold email for you. It will block them based on your instructions.",
     icon: SparklesIcon,
   },
   {
@@ -274,7 +274,7 @@ const featuresReplyZero = [
   {
     name: "Choose your workflow",
     description:
-      "Use Reply Zero as a minimal view within Inbox Zero for ultimate focus, or leverage our Gmail labels to manage replies your way. Either way, you'll only see what truly needs your attention.",
+      "Use Reply Zero as a minimal view within UIP Control for ultimate focus, or leverage our Gmail labels to manage replies your way. Either way, you'll only see what truly needs your attention.",
     icon: ListStartIcon,
   },
 ];
@@ -285,7 +285,7 @@ export function FeaturesReplyZero({ imageSide }: { imageSide?: Side }) {
       imageSide={imageSide}
       title="Reply Zero"
       subtitle="Answer every email that matters"
-      description="Most emails don't need a reply. Reply Zero only shows you the ones that do."
+      description="Most emails don't need a reply. Reply Zero only shows you the ones that do, as part of UIP Control's email automation suite."
       image="/images/home/reply-zero.png"
       features={featuresReplyZero}
     />

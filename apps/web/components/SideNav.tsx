@@ -126,7 +126,7 @@ const bottomLinks: NavItem[] = [
   // },
   {
     name: "Help Center",
-    href: "https://docs.getinboxzero.com",
+    href: "https://www.uipcontrol.com/help",
     target: "_blank",
     icon: BookIcon,
   },

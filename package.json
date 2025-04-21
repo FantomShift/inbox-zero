@@ -1,5 +1,5 @@
 {
-  "name": "inbox-zero",
+  "name": "uip-control",
   "private": true,
   "scripts": {
     "build": "turbo build --filter=./apps/web",

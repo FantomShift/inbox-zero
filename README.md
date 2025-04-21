@@ -1,15 +1,15 @@
-[![](apps/web/app/opengraph-image.png)](https://www.getinboxzero.com)
+[![](apps/web/app/opengraph-image.png)](https://www.uipcontrol.com)
 
 <p align="center">
-  <a href="https://www.getinboxzero.com">
-    <h1 align="center">Inbox Zero - Your AI Email Assistant</h1>
+  <a href="https://www.uipcontrol.com">
+    <h1 align="center">UIP Control - Your AI Email Assistant</h1>
   </a>
   <p align="center">
     Open source email app to reach inbox zero fast.
     <br />
-    <a href="https://www.getinboxzero.com">Website</a>
+    <a href="https://www.uipcontrol.com">Website</a>
     ·
-    <a href="https://www.getinboxzero.com/discord">Discord</a>
+    <a href="https://www.uipcontrol.com/discord">Discord</a>
     ·
     <a href="https://github.com/elie222/inbox-zero/issues">Issues</a>
   </p>
@@ -17,7 +17,7 @@
 
 ## About
 
-There are two parts to Inbox Zero:
+There are two parts to UIP Control:
 
 1. An AI email assistant that helps you spend less time on email.
 2. Open source AI email client.
@@ -26,7 +26,7 @@ If you're looking to contribue to the project, the email client is the best plac
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Felie222%2Finbox-zero&env=NEXTAUTH_SECRET,GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET,GOOGLE_ENCRYPT_SECRET,GOOGLE_ENCRYPT_SALT,UPSTASH_REDIS_URL,UPSTASH_REDIS_TOKEN,GOOGLE_PUBSUB_TOPIC_NAME,DATABASE_URL)
 
-Thanks to Vercel for sponsoring Inbox Zero in support of open-source software.
+Thanks to FantomShift Studios for supporting UIP Control.
 
 ## Features
 
@@ -49,7 +49,7 @@ Learn more in our [docs](https://docs.getinboxzero.com).
 
 ## Demo Video
 
-[![Inbox Zero demo](/video-thumbnail.png)](http://www.youtube.com/watch?v=hfvKvTHBjG0)
+[![UIP Control demo](/video-thumbnail.png)](http://www.youtube.com/watch?v=hfvKvTHBjG0)
 
 ## Built with
 
@@ -66,16 +66,16 @@ Learn more in our [docs](https://docs.getinboxzero.com).
 
 ## Feature Requests
 
-To request a feature open a [GitHub issue](https://github.com/elie222/inbox-zero/issues), or join our [Discord](https://www.getinboxzero.com/discord).
+To request a feature open a [GitHub issue](https://github.com/elie222/inbox-zero/issues), or join our [Discord](https://www.uipcontrol.com/discord).
 
 ## Getting Started for Developers
 
-We offer a hosted version of Inbox Zero at [https://getinboxzero.com](https://getinboxzero.com). To self-host follow the steps below.
+We offer a hosted version of UIP Control at [https://www.uipcontrol.com](https://www.uipcontrol.com). To self-host follow the steps below.
 
 ### Contributing to the project
 
 You can view open tasks in our [GitHub Issues](https://github.com/elie222/inbox-zero/issues).
-Join our [Discord](https://www.getinboxzero.com/discord) to discuss tasks and check what's being worked on.
+Join our [Discord](https://www.uipcontrol.com/discord) to discuss tasks and check what's being worked on.
 
 [ARCHITECTURE.md](./ARCHITECTURE.md) explains the architecture of the project (LLM generated).
 
@@ -188,14 +188,17 @@ You can select the model you wish to use in the app on the `/settings` page of t
 ### Setting up Google OAuth and Gmail API
 
 1. **Create a Project in Google Cloud Console**
+
    - Go to [Google Cloud Console](https://console.cloud.google.com/)
    - Create a new project
 
 2. **Enable Required APIs**
+
    - Enable the [Gmail API](https://console.developers.google.com/apis/api/gmail.googleapis.com/overview)
    - Enable the [People API](https://console.developers.google.com/apis/api/people.googleapis.com/overview)
 
 3. **Configure the OAuth Consent Screen**
+
    - Go to 'APIs & Services' > 'OAuth consent screen'
    - Choose 'External' user type (or 'Internal' if you have Google Workspace)
    - Fill in required app information
@@ -210,6 +213,7 @@ You can select the model you wish to use in the app on the `/settings` page of t
    - Add yourself as a test user under 'Test users' section
 
 4. **Create OAuth 2.0 Credentials**
+
    - Go to 'APIs & Services' > 'Credentials'
    - Click 'Create Credentials' > 'OAuth client ID'
    - Select 'Web application' type
@@ -242,7 +246,7 @@ Follow instructions [here](https://developers.google.com/gmail/api/guides/push).
 3. [Grant publish rights on your topic](https://developers.google.com/gmail/api/guides/push#grant_publish_rights_on_your_topic)
 
 Set env var `GOOGLE_PUBSUB_TOPIC_NAME`.
-When creating the subscription select Push and the url should look something like: `https://www.getinboxzero.com/api/google/webhook?token=TOKEN` or `https://abc.ngrok-free.app/api/google/webhook?token=TOKEN` where the domain is your domain. Set `GOOGLE_PUBSUB_VERIFICATION_TOKEN` in your `.env` file to be the value of `TOKEN`.
+When creating the subscription select Push and the url should look something like: `https://www.uipcontrol.com/api/google/webhook?token=TOKEN` or `https://abc.ngrok-free.app/api/google/webhook?token=TOKEN` where the domain is your domain. Set `GOOGLE_PUBSUB_VERIFICATION_TOKEN` in your `.env` file to be the value of `TOKEN`.
 
 To run in development ngrok can be helpful:
 

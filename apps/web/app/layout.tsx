@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-// import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/react";
 import { AxiomWebVitals } from "next-axiom";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
@@ -25,9 +25,9 @@ const calFont = localFont({
   display: "swap",
 });
 
-const title = "Inbox Zero | Automate and clean your inbox";
+const title = "UIP Control | Automate and clean your inbox";
 const description =
-  "Inbox Zero is your AI personal assistant for email and the quickest way to reach inbox zero. Automate your email, bulk unsubscribe from newsletters, block cold emails, and view your email analytics. Open-source.";
+  "UIP Control is your AI personal assistant for email and the quickest way to reach inbox zero. Automate your email, bulk unsubscribe from newsletters, block cold emails, and view your email analytics. Open-source.";
 
 export const metadata: Metadata = {
   title,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    siteName: "Inbox Zero",
+    siteName: "UIP Control",
     type: "website",
   },
   twitter: {
@@ -51,11 +51,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   // pwa
-  applicationName: "Inbox Zero",
+  applicationName: "UIP Control",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Inbox Zero",
+    title: "UIP Control",
     startupImage,
   },
   formatDetection: {
@@ -89,7 +89,7 @@ export default async function RootLayout({
           </Suspense>
           <GlobalProviders>{children}</GlobalProviders>
         </PostHogProvider>
-        {/* <Analytics /> */}
+        <Analytics />
         <AxiomWebVitals />
         <UTM />
         {env.NEXT_PUBLIC_GTM_ID ? (

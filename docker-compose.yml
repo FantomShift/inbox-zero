@@ -1,19 +1,19 @@
-name: inbox-zero-services
+name: uip-control-services
 services:
   db:
     image: postgres
     restart: always
-    container_name: inbox-zero
+    container_name: uip-control
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-inboxzero}
+      - POSTGRES_DB=${POSTGRES_DB:-uipcontrol}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
     volumes:
       - database-data:/var/lib/postgresql/data/
     ports:
       - ${POSTGRES_PORT:-5432}:5432
     networks:
-      - inbox-zero-network
+      - uip-control-network
 
   redis:
     image: redis
@@ -22,7 +22,7 @@ services:
     volumes:
       - database-data:/data
     networks:
-      - inbox-zero-network
+      - uip-control-network
 
   serverless-redis-http:
     ports:
@@ -35,7 +35,7 @@ services:
       SRH_TOKEN: ${UPSTASH_REDIS_TOKEN}
       SRH_CONNECTION_STRING: "redis://redis:6379" # Using `redis` hostname since they're in the same Docker network.
     networks:
-      - inbox-zero-network
+      - uip-control-network
 
   web:
     build:
@@ -49,10 +49,10 @@ services:
     ports:
       - ${WEB_PORT:-3000}:3000
     networks:
-      - inbox-zero-network
+      - uip-control-network
     environment:
-      DATABASE_URL: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-password}@db:5432/${POSTGRES_DB:-inboxzero}?schema=public"
-      DIRECT_URL: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-password}@db:5432/${POSTGRES_DB:-inboxzero}?schema=public"
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-password}@db:5432/${POSTGRES_DB:-uipcontrol}?schema=public"
+      DIRECT_URL: "postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-password}@db:5432/${POSTGRES_DB:-uipcontrol}?schema=public"
       UPSTASH_REDIS_URL: "http://serverless-redis-http:80"
       UPSTASH_REDIS_TOKEN: "${UPSTASH_REDIS_TOKEN}"
 
@@ -60,4 +60,4 @@ volumes:
   database-data:
 
 networks:
-  inbox-zero-network:
+  uip-control-network:

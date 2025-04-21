@@ -17,14 +17,14 @@ export function CTA() {
       </div> */}
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="font-cal text-3xl text-gray-900 sm:text-4xl">
-          Boost your productivity.
+          Automate your inbox with AI.
           <br />
-          Start using Inbox Zero today.
+          Start using UIP Control today.
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
-          Inbox Zero uses AI to help you empty your inbox daily. What previously
-          took hours, now takes minutes. Inbox Zero is your virtual assistant
-          for emails.
+          UIP Control Email is your AI-powered assistant for email automation.
+          Unsubscribe, block spam, and manage your inbox with natural language
+          commands. What used to take hours now takes minutes.
         </p>
         <CTAButtons />
       </div>

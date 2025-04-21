@@ -15,9 +15,9 @@ const copy: {
   };
 } = {
   control: {
-    title: "Meet Your AI Email Assistant That Actually Works",
+    title: "UIP Control Email: AI-powered email automation",
     subtitle:
-      "Cut your email time in half. Inbox Zero intelligently automates responses, organizes your inbox, and helps you reach inbox zero in record time.",
+      "Unsubscribe, block spam, and manage your inbox with natural language commands. Open-source.",
   },
   "clean-up-in-minutes": {
     title: "Clean Up Your Inbox In Minutes",

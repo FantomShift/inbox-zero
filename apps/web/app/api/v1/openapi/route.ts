@@ -80,8 +80,12 @@ export async function GET(request: NextRequest) {
   const docs = generator.generateDocument({
     openapi: "3.1.0",
     info: {
-      title: "Inbox Zero API",
+      title: "UIP Control API",
       version: "1.0.0",
+      description: "API for UIP Control",
+      license: {
+        name: "MIT",
+      },
     },
     servers: [
       ...(customHost
@@ -94,6 +98,7 @@ export async function GET(request: NextRequest) {
       { url: "http://localhost:3000/api/v1", description: "Local development" },
     ],
     security: [{ ApiKeyAuth: [] }],
+    paths: {},
   });
 
   return new NextResponse(JSON.stringify(docs), {

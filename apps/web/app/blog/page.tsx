@@ -28,10 +28,10 @@ type SanityPost = {
 
 const mdxPosts: Post[] = [
   {
-    title: "How Inbox Zero hit #1 on Product Hunt",
+    title: "How UIP Control hit #1 on Product Hunt",
     file: "how-my-open-source-saas-hit-first-on-product-hunt",
     description:
-      "Two weeks ago I launched Inbox Zero on Product Hunt. It finished in first place with over 1000 upvotes and gained thousands of new users. The app, Inbox Zero, helps you clean up your inbox fast. It lets you bulk unsubscribe from newsletters, automate emails with an AI assistant, automatically block cold emails, and provides email analytics.",
+      "Two weeks ago I launched UIP Control on Product Hunt. It finished in first place with over 1000 upvotes and gained thousands of new users. The app, UIP Control, helps you clean up your inbox fast. It lets you bulk unsubscribe from newsletters, automate emails with an AI assistant, automatically block cold emails, and provides email analytics.",
     date: "Jan 22, 2024",
     datetime: "2024-01-22",
     // category: { title: "Marketing", href: "#" },
@@ -95,7 +95,7 @@ const mdxPosts: Post[] = [
     title: "How to Bulk Unsubscribe from Emails",
     file: "bulk-unsubscribe-from-emails",
     description:
-      "Want to stop the flood of unwanted subscriptions in your email? Learn how to bulk unsubscribe from emails and create a clutter-free inbox with Inbox Zero.",
+      "Want to stop the flood of unwanted subscriptions in your email? Learn how to bulk unsubscribe from emails and create a clutter-free inbox with UIP Control.",
     date: "March 05, 2024",
     datetime: "2024-03-05",
     // category: { title: "Marketing", href: "#" },

@@ -29,7 +29,7 @@ export function LoginForm() {
     : "Sign in with Google";
 
   return (
-    <div className="flex flex-col gap-2 justify-center px-4 sm:px-16">
+    <div className="flex flex-col justify-center gap-2 px-4 sm:px-16">
       <Dialog>
         <DialogTrigger asChild>
           <Button size="2xl">
@@ -50,7 +50,7 @@ export function LoginForm() {
             <DialogTitle>Sign in</DialogTitle>
           </DialogHeader>
           <SectionDescription>
-            Inbox Zero{"'"}s use and transfer of information received from
+            UIP Control{"'"}s use and transfer of information received from
             Google APIs to any other app will adhere to{" "}
             <a
               href="https://developers.google.com/terms/api-services-user-data-policy"

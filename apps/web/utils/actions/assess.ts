@@ -19,19 +19,20 @@ export const assessUserAction = withActionInstrumentation(
   "assessUser",
   async () => {
     const session = await auth();
-    if (!session?.user.email) return { error: "Not authenticated" };
+    const email = session?.user.email;
+    if (!email) return { error: "Not authenticated" };
 
     const gmail = getGmailClient(session);
 
-    const assessedUser = await prisma.user.findUnique({
-      where: { email: session.user.email },
+    const emailAccount = await prisma.emailAccount.findUnique({
+      where: { email },
       select: { behaviorProfile: true },
     });
 
-    if (assessedUser?.behaviorProfile) return { success: true, skipped: true };
+    if (emailAccount?.behaviorProfile) return { success: true, skipped: true };
 
     const result = await assessUser({ gmail });
-    await saveBehaviorProfile(session.user.email, result);
+    await saveBehaviorProfile(email, result);
 
     return { success: true };
   },
@@ -41,7 +42,7 @@ async function saveBehaviorProfile(
   email: string,
   assessment: Awaited<ReturnType<typeof assessUser>>,
 ) {
-  await prisma.user.update({
+  await prisma.emailAccount.update({
     where: { email },
     data: { behaviorProfile: assessment },
   });
@@ -51,14 +52,15 @@ export const analyzeWritingStyleAction = withActionInstrumentation(
   "analyzeWritingStyle",
   async () => {
     const session = await auth();
-    if (!session?.user.email) return { error: "Not authenticated" };
+    const email = session?.user.email;
+    if (!email) return { error: "Not authenticated" };
 
-    const user = await getAiUser({ id: session.user.id });
+    const user = await getAiUser({ email });
     if (!user) return { error: "User not found" };
 
     const emailAccount = await prisma.emailAccount.findUnique({
-      where: { email: session.user.email },
-      select: { id: true, writingStyle: true },
+      where: { email },
+      select: { writingStyle: true },
     });
     if (emailAccount?.writingStyle) return { success: true, skipped: true };
 
@@ -91,31 +93,10 @@ export const analyzeWritingStyleAction = withActionInstrumentation(
       .filter(Boolean)
       .join("\n");
 
-    if (emailAccount) {
-      await prisma.emailAccount.update({
-        where: { id: emailAccount.id },
-        data: { writingStyle },
-      });
-    } else {
-      const account = await prisma.account.findFirst({
-        where: { userId: session.user.id },
-        select: { id: true },
-      });
-
-      if (!account) {
-        logger.error("Account not found", { userId: session.user.id });
-        return { error: "Account not found" };
-      }
-
-      await prisma.emailAccount.create({
-        data: {
-          email: session.user.email,
-          accountId: account.id,
-          writingStyle,
-          userId: session.user.id,
-        },
-      });
-    }
+    await prisma.emailAccount.update({
+      where: { email },
+      data: { writingStyle },
+    });
 
     return { success: true };
   },

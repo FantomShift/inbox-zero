@@ -1,6 +1,7 @@
 // based on: https://github.com/vercel/platforms/blob/main/lib/auth.ts
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import type { NextAuthConfig, DefaultSession, Account } from "next-auth";
+import type { AdapterAccount } from "@auth/core/adapters";
 import type { JWT } from "@auth/core/jwt";
 import GoogleProvider from "next-auth/providers/google";
 import { createContact as createLoopsContact } from "@inboxzero/loops";
@@ -45,7 +46,50 @@ export const getAuthOptions: (options?: {
       },
     }),
   ],
-  adapter: PrismaAdapter(prisma),
+  logger: {
+    error: (error) => {
+      logger.error(error.message, { error });
+    },
+    warn: (message) => {
+      logger.warn(message);
+    },
+    debug: (message, metadata) => {
+      logger.info(message, { metadata });
+    },
+  },
+  adapter: {
+    ...PrismaAdapter(prisma),
+    linkAccount: async (data: AdapterAccount): Promise<void> => {
+      try {
+        // --- Step 1: Create the Account record ---
+        const createdAccount = await prisma.account.create({
+          data,
+          select: { id: true, user: { select: { email: true } } },
+        });
+
+        // --- Step 2: Create the corresponding EmailAccount record ---
+        await prisma.emailAccount.upsert({
+          where: { email: createdAccount.user.email },
+          update: {
+            userId: data.userId,
+            accountId: createdAccount.id,
+          },
+          create: {
+            email: createdAccount.user.email,
+            userId: data.userId,
+            accountId: createdAccount.id,
+          },
+        });
+      } catch (error) {
+        logger.error("Error linking account", {
+          userId: data.userId,
+          error,
+        });
+        captureException(error, { extra: { userId: data.userId } });
+        throw error;
+      }
+    },
+  },
   session: { strategy: "jwt" },
   // based on: https://authjs.dev/guides/basics/refresh-token-rotation
   // and: https://github.com/nextauthjs/next-auth-refresh-token-example/blob/main/pages/api/auth/%5B...nextauth%5D.js
@@ -158,11 +202,17 @@ export const getAuthOptions: (options?: {
         ]);
 
         if (loopsResult.status === "rejected") {
-          logger.error("Error creating Loops contact", {
-            email: user.email,
-            error: loopsResult.reason,
-          });
-          captureException(loopsResult.reason, undefined, user.email);
+          const alreadyExists =
+            loopsResult.reason instanceof Error &&
+            loopsResult.reason.message.includes("409");
+
+          if (!alreadyExists) {
+            logger.error("Error creating Loops contact", {
+              email: user.email,
+              error: loopsResult.reason,
+            });
+            captureException(loopsResult.reason, undefined, user.email);
+          }
         }
 
         if (resendResult.status === "rejected") {

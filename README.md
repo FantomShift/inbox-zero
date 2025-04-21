@@ -60,9 +60,13 @@ Learn more in our [docs](https://docs.getinboxzero.com).
 - [Upstash](https://upstash.com/)
 - [Turborepo](https://turbo.build/)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=elie222/inbox-zero&type=Date)](https://www.star-history.com/#elie222/inbox-zero&Date)
+
 ## Feature Requests
 
-To request a feature open a [GitHub issue](https://github.com/elie222/inbox-zero/issues). If you don't have a GitHub account you can request features [here](https://www.getinboxzero.com/feature-requests). Or join our [Discord](https://www.getinboxzero.com/discord).
+To request a feature open a [GitHub issue](https://github.com/elie222/inbox-zero/issues), or join our [Discord](https://www.getinboxzero.com/discord).
 
 ## Getting Started for Developers
 
